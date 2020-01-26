@@ -1,0 +1,12 @@
+.navbar-custom {
+background-color: rgb(10, 113, 176);
+}
+
+nav:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+#default{
+color: white;
+font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}

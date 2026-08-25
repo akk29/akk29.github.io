@@ -132,31 +132,24 @@ export function stackBadgeUrl(name: string) {
   return badgeUrl(name, color, logo, logoColor);
 }
 
-export const openSource = [
+export const openSource = [  
   {
-    name: "swippter",
-    title: "Fast-fashion online storefront",
-    url: "https://github.com/akk29/swippter",
-    description:
-      "A production-grade fast-fashion eCommerce platform built as my primary engineering sandbox to push system design, scalability & observability skills. Implements real-world commerce features including authentication, product discovery, inventory consistency, and order processing, with a deliberate focus on failure handling, performance, and service decoupling. Frontend in React + TypeScript, backend on Python + Django with MySQL and Celery + RabbitMQ, fully containerized and deployable via Kubernetes and Docker Compose. Instrumented end-to-end with distributed tracing, metrics, and centralized logging using OpenTelemetry, Prometheus, Grafana, Loki, Tempo, and Promtail.",
-  },
-  {
-    name: "gitpy",
+    name: "Gitpy",
     title: "Python Package to GitHub REST API",
     url: "https://github.com/akk29/gitpy",
     description:
       "A Python library that simplifies automation and management of GitHub resources by providing a clean, developer-friendly interface over the GitHub REST API.",
   },
   {
-    name: "career-finder",
-    title: "Web Application",
+    name: "Career-finder",
+    title: "Job Recruitment Portal",
     url: "https://github.com/akk29/career-finder",
     description:
       "A recruitment platform that connects recruiters and job seekers by streamlining job discovery, applications, and hiring workflows through a centralized system.",
   },
   {
-    name: "kisanmill",
-    title: "Web Application",
+    name: "Kisanmill",
+    title: "Direct food distribution for farmers",
     url: "https://github.com/akk29/kisanmill",
     description:
       "A B2C & C2C platform designed for the agriculture sector to eliminate middlemen, enabling direct transactions between farmers and buyers to maximize earnings and efficiency.",

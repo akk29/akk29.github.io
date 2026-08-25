@@ -3,7 +3,7 @@ import { socialBadges } from "../data";
 
 export function Hero() {
   return (
-    <Card className="text-center">
+    <Card id="profile" className="text-center">
       <div className="mx-auto mb-5 w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-dashed border-[var(--gutter)] bg-[var(--bg-elevated)] flex items-center justify-center text-[var(--text-dim)] font-mono text-[10px] uppercase tracking-wide">
         photo.jpg
       </div>
@@ -13,7 +13,7 @@ export function Hero() {
       </p>
 
       <p className="mt-2 text-sm sm:text-base text-[var(--text)]">
-        🤖 Software Engineer · 📍 IND
+        <span>  🤖 Software Engineer · 📍 IND <img src="https://img.icons8.com/?size=32&id=32584&format=png&color=000000" alt="" /> </span>
       </p>
 
       <div className="flex items-center justify-center gap-2.5 mt-5 flex-wrap px-2">

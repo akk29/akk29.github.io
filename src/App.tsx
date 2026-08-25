@@ -6,20 +6,22 @@ import { Employment } from "./components/Employment";
 import { Projects } from "./components/Projects";
 import { Education } from "./components/Education";
 import { Footer } from "./components/Footer";
+import { Navigation } from "./components/Navigation";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--bg)] px-3 sm:px-5 md:px-6">
-      <div className="max-w-3xl mx-auto pt-8 sm:pt-12">
+    <div className="app-shell min-h-screen bg-[var(--bg)] px-3 sm:px-5 md:px-6">
+      <Navigation />
+      <main className="max-w-3xl mx-auto pt-8 sm:pt-12">
         <Hero />
-        <GithubStats />
         <About />
-        <TechStack />
         <Employment />
+        <TechStack />
         <Projects />
+        <GithubStats />
         <Education />
         <Footer />
-      </div>
+      </main>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Card } from "./Card";
 import { socialBadges } from "../data";
 import profileImage from "../assets/profile.jpg";
+import { FileText } from "lucide-react";
 
 export function Hero() {
   return (
@@ -24,12 +25,16 @@ export function Hero() {
         </span>
       </p>
 
-      <div className="flex items-center justify-center gap-2.5 mt-5 flex-wrap px-2">
+      <div className="social-actions flex items-center justify-center gap-2.5 mt-5 flex-wrap px-2">
         {socialBadges.map((b) => (
           <a key={b.label} href={b.href} target="_blank" rel="noreferrer" className={`social-link-${b.label.toLowerCase()}`}>
             <img src={b.url} alt={b.label} className="h-7 sm:h-[26px] w-auto" />
           </a>
         ))}
+        <a className="resume-link" href="/resume.pdf" download>
+          <FileText size={15} aria-hidden="true" />
+          <span>Resume</span>
+        </a>
       </div>
 
       <p className="max-w-lg mx-auto mt-6 text-sm sm:text-[15px] text-[var(--text)] leading-relaxed">

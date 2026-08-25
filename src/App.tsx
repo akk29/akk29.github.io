@@ -5,7 +5,6 @@ import { TechStack } from "./components/TechStack";
 import { Employment } from "./components/Employment";
 import { Projects } from "./components/Projects";
 import { Education } from "./components/Education";
-import { Footer } from "./components/Footer";
 import { Navigation } from "./components/Navigation";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
         <Projects />
         <GithubStats />
         <Education />
-        <Footer />
       </main>
     </div>
   );

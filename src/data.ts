@@ -10,7 +10,7 @@ export function badgeUrl(label: string, color: string, logo?: string, logoColor 
 
 export const socialBadges = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/akshay-kathpal/", url: "https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" },
-  { label: "Portfolio", href: "https://akk29.github.io/", url: "https://img.shields.io/badge/Portfolio-111827?style=for-the-badge&logo=googlechrome&logoColor=white" },
+  { label: "GitHub", href: "https://github.com/akk29", url: "https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" },
   { label: "Email", href: "mailto:akshatkathpal29@hotmail.com", url: "https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" },
 ] as const;
 

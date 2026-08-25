@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, BriefcaseBusiness, Code2, GraduationCap, House, Mail, UserRound, Wrench } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Code2, GitFork, GraduationCap, House, Menu, UserRound, Wrench, X } from "lucide-react";
 
 const navigationItems = [
   { id: "profile", label: "Profile", icon: House },
@@ -12,6 +12,7 @@ const navigationItems = [
 
 export function Navigation() {
   const [activeId, setActiveId] = useState("profile");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   function navigateToSection(id: string) {
     const section = document.getElementById(id);
@@ -28,7 +29,17 @@ export function Navigation() {
     });
     window.history.pushState(null, "", `#${id}`);
     setActiveId(id);
+    setMobileMenuOpen(false);
   }
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const sections = navigationItems
@@ -51,11 +62,36 @@ export function Navigation() {
           <span className="brand-mark">AK</span>
           <span className="brand-copy"><strong>Akshay Kathpal</strong></span>
         </a>
-        <a className="header-contact" href="mailto:akshatkathpal29@hotmail.com"><Mail size={15} aria-hidden="true" /></a>
+        <a className="header-github" href="https://github.com/akk29" target="_blank" rel="noreferrer" aria-label="Open Akshay Kathpal's GitHub profile" title="GitHub">
+          <GitFork size={17} aria-hidden="true" />
+        </a>
+        <button
+          className="mobile-menu-trigger"
+          type="button"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={mobileMenuOpen ? "Close navigation" : `Open navigation, current section: ${navigationItems.find((item) => item.id === activeId)?.label}`}
+          onClick={() => setMobileMenuOpen((open) => !open)}
+        >
+          <span>{navigationItems.find((item) => item.id === activeId)?.label}</span>
+          {mobileMenuOpen ? <X size={17} aria-hidden="true" /> : <Menu size={17} aria-hidden="true" />}
+        </button>
       </header>
-      <nav className="mobile-nav" aria-label="Page navigation">
-        {navigationItems.map(({ id, label }) => <a key={id} className={activeId === id ? "active" : ""} href={`#${id}`} onClick={(event) => { event.preventDefault(); navigateToSection(id); }}>{label}</a>)}
-      </nav>
+      {mobileMenuOpen && (
+        <div className="mobile-menu" id="mobile-navigation">
+          <button className="mobile-menu-backdrop" type="button" aria-label="Close navigation" onClick={() => setMobileMenuOpen(false)} />
+          <nav className="mobile-menu-panel" aria-label="Page navigation">
+            <p className="mobile-menu-label">Navigate to</p>
+            {navigationItems.map(({ id, label, icon: Icon }) => (
+              <a key={id} className={activeId === id ? "active" : ""} href={`#${id}`} onClick={(event) => { event.preventDefault(); navigateToSection(id); }}>
+                <Icon size={16} aria-hidden="true" />
+                <span>{label}</span>
+                {activeId === id && <ArrowUpRight className="active-arrow" size={14} aria-hidden="true" />}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
       <aside className="page-outline" aria-label="On this page">
         <p className="outline-label">On this page</p>
         <div className="outline-links">

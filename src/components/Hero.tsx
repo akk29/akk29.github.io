@@ -1,7 +1,6 @@
 import { Card } from "./Card";
-import { socialBadges } from "../data";
+import { resumeBadgeUrl, socialBadges } from "../data";
 import profileImage from "../assets/profile.jpg";
-import { FileText } from "lucide-react";
 
 export function Hero() {
   return (
@@ -31,9 +30,9 @@ export function Hero() {
             <img src={b.url} alt={b.label} className="h-7 sm:h-[26px] w-auto" />
           </a>
         ))}
-        <a className="resume-link" href="/resume.pdf" download>
-          <FileText size={15} aria-hidden="true" />
           <span>Resume</span>
+        <a className="resume-link" href="https://bit.ly/ak29-resume" target="_blank">
+          <img src={resumeBadgeUrl} alt="Resume" className="h-7 sm:h-[26px] w-auto" />
         </a>
       </div>
 

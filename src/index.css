@@ -200,18 +200,6 @@ body {
 .resume-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  min-height: 1.75rem;
-  padding: 0 0.8rem;
-  border: 0;
-  border-radius: 0;
-  background: var(--purple);
-  color: #ffffff;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   text-decoration: none;
   transition: filter 160ms ease, transform 160ms ease;
 }

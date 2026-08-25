@@ -8,6 +8,8 @@ export function badgeUrl(label: string, color: string, logo?: string, logoColor 
   return `https://img.shields.io/badge/${encodedLabel}-${color}?${params.toString()}`;
 }
 
+export const resumeBadgeUrl = badgeUrl("Resume", "8B5CF6", "readme");
+
 export const socialBadges = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/akshay-kathpal/", url: "https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" },
   { label: "GitHub", href: "https://github.com/akk29", url: "https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" },

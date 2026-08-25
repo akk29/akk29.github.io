@@ -115,6 +115,11 @@ body {
 
 .header-github:hover { color: var(--cyan); }
 
+.github-mark {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
 .page-outline {
   position: fixed;
   top: 8.25rem;

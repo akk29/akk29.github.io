@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, BriefcaseBusiness, Code2, GraduationCap, House, Menu, UserRound, Wrench, X } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Code2, GraduationCap, House, Menu, Moon, Sun, UserRound, Wrench, X } from "lucide-react";
 
 const navigationItems = [
   { id: "profile", label: "Profile", icon: House },
@@ -13,6 +13,7 @@ const navigationItems = [
 export function Navigation() {
   const [activeId, setActiveId] = useState("profile");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lightMode, setLightMode] = useState(() => localStorage.getItem("theme") === "light");
 
   function navigateToSection(id: string) {
     const section = document.getElementById(id);
@@ -31,6 +32,19 @@ export function Navigation() {
     setActiveId(id);
     setMobileMenuOpen(false);
   }
+
+  function toggleTheme() {
+    setLightMode((isLight) => {
+      const nextIsLight = !isLight;
+      localStorage.setItem("theme", nextIsLight ? "light" : "dark");
+      document.documentElement.dataset.theme = nextIsLight ? "light" : "dark";
+      return nextIsLight;
+    });
+  }
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = lightMode ? "light" : "dark";
+  }, [lightMode]);
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
@@ -62,20 +76,22 @@ export function Navigation() {
           <span className="brand-mark">AK</span>
           <span className="brand-copy"><strong>Akshay Kathpal</strong></span>
         </a>
-        <a className="header-github" href="https://github.com/akk29" target="_blank" rel="noreferrer" aria-label="Open Akshay Kathpal's GitHub profile" title="GitHub">
-          <img className="github-mark" src="https://cdn.simpleicons.org/github/a9b1d6" alt="" />
-        </a>
-        <button
-          className="mobile-menu-trigger"
-          type="button"
-          aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-navigation"
-          aria-label={mobileMenuOpen ? "Close navigation" : `Open navigation, current section: ${navigationItems.find((item) => item.id === activeId)?.label}`}
-          onClick={() => setMobileMenuOpen((open) => !open)}
-        >
-          <span>{navigationItems.find((item) => item.id === activeId)?.label}</span>
-          {mobileMenuOpen ? <X size={17} aria-hidden="true" /> : <Menu size={17} aria-hidden="true" />}
-        </button>
+        <div className="header-actions">
+          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={lightMode ? "Switch to dark mode" : "Switch to light mode"} title={lightMode ? "Dark mode" : "Light mode"}>
+            {lightMode ? <Moon size={17} aria-hidden="true" /> : <Sun size={17} aria-hidden="true" />}
+          </button>
+          <button
+            className="mobile-menu-trigger"
+            type="button"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={mobileMenuOpen ? "Close navigation" : `Open navigation, current section: ${navigationItems.find((item) => item.id === activeId)?.label}`}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+          >
+            <span>{navigationItems.find((item) => item.id === activeId)?.label}</span>
+            {mobileMenuOpen ? <X size={17} aria-hidden="true" /> : <Menu size={17} aria-hidden="true" />}
+          </button>
+        </div>
       </header>
       {mobileMenuOpen && (
         <div className="mobile-menu" id="mobile-navigation">

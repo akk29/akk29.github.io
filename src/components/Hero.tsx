@@ -6,7 +6,7 @@ import { FileText } from "lucide-react";
 export function Hero() {
   return (
     <Card id="profile" className="text-center">
-      <div className="mx-auto mt-5 mb-6 sm:mt-8 sm:mb-7 w-36 h-36 sm:w-48 sm:h-48 overflow-hidden rounded-full border-2 border-dashed border-[var(--gutter)] bg-[var(--bg-elevated)] flex items-center justify-center">
+      <div className="profile-photo mx-auto mt-5 mb-6 sm:mt-8 sm:mb-7 w-36 h-36 sm:w-48 sm:h-48 overflow-hidden rounded-full border-2 border-dashed border-[var(--gutter)] bg-[var(--bg-elevated)] flex items-center justify-center">
         <img src={profileImage} alt="Akshay Kathpal" className="h-full w-full object-cover object-[center_30%]" />
       </div>
 

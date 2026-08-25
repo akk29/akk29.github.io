@@ -12,8 +12,15 @@ export function Hero() {
         👋 Hi, I'm Akshay Kathpal
       </p>
 
-      <p className="mt-2 text-sm sm:text-base text-[var(--text)]">
-        <span>  🤖 Software Engineer · 📍 IND <img src="https://img.icons8.com/?size=32&id=32584&format=png&color=000000" alt="" /> </span>
+      <p className="mt-2 flex justify-center text-sm sm:text-base text-[var(--text)]">
+        <span className="inline-flex items-center gap-1.5">
+          <span>🤖 Software Engineer · 📍 IND</span>
+          <img
+            src="https://img.icons8.com/?size=32&id=32584&format=png&color=000000"
+            alt=""
+            className="h-5 w-5 object-contain"
+          />
+        </span>
       </p>
 
       <div className="flex items-center justify-center gap-2.5 mt-5 flex-wrap px-2">

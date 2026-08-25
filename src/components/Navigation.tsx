@@ -13,6 +13,23 @@ const navigationItems = [
 export function Navigation() {
   const [activeId, setActiveId] = useState("profile");
 
+  function navigateToSection(id: string) {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    const stickyOffset = [".site-header", ".mobile-nav"]
+      .map((selector) => document.querySelector<HTMLElement>(selector))
+      .filter((element): element is HTMLElement => element !== null && getComputedStyle(element).display !== "none")
+      .reduce((offset, element) => offset + element.offsetHeight, 16);
+
+    window.scrollTo({
+      top: section.getBoundingClientRect().top + window.scrollY - stickyOffset,
+      behavior: "smooth",
+    });
+    window.history.pushState(null, "", `#${id}`);
+    setActiveId(id);
+  }
+
   useEffect(() => {
     const sections = navigationItems
       .map(({ id }) => document.getElementById(id))
@@ -30,20 +47,20 @@ export function Navigation() {
   return (
     <>
       <header className="site-header">
-        <a className="brand" href="#profile" aria-label="Go to Akshay Kathpal's profile">
+        <a className="brand" href="#profile" aria-label="Go to Akshay Kathpal's profile" onClick={(event) => { event.preventDefault(); navigateToSection("profile"); }}>
           <span className="brand-mark">AK</span>
           <span className="brand-copy"><strong>Akshay Kathpal</strong></span>
         </a>
         <a className="header-contact" href="mailto:akshatkathpal29@hotmail.com"><Mail size={15} aria-hidden="true" /></a>
       </header>
       <nav className="mobile-nav" aria-label="Page navigation">
-        {navigationItems.map(({ id, label }) => <a key={id} className={activeId === id ? "active" : ""} href={`#${id}`}>{label}</a>)}
+        {navigationItems.map(({ id, label }) => <a key={id} className={activeId === id ? "active" : ""} href={`#${id}`} onClick={(event) => { event.preventDefault(); navigateToSection(id); }}>{label}</a>)}
       </nav>
       <aside className="page-outline" aria-label="On this page">
         <p className="outline-label">On this page</p>
         <div className="outline-links">
           {navigationItems.map(({ id, label, icon: Icon }) => (
-            <a key={id} className={activeId === id ? "active" : ""} href={`#${id}`} onClick={() => setActiveId(id)}>
+            <a key={id} className={activeId === id ? "active" : ""} href={`#${id}`} onClick={(event) => { event.preventDefault(); navigateToSection(id); }}>
               <Icon size={15} strokeWidth={activeId === id ? 2.25 : 1.8} aria-hidden="true" />
               <span>{label}</span>
               {activeId === id && <ArrowUpRight className="active-arrow" size={13} aria-hidden="true" />}

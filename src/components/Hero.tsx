@@ -30,7 +30,6 @@ export function Hero() {
             <img src={b.url} alt={b.label} className="h-7 sm:h-[26px] w-auto" />
           </a>
         ))}
-          <span>Resume</span>
         <a className="resume-link" href="https://bit.ly/ak29-resume" target="_blank">
           <img src={resumeBadgeUrl} alt="Resume" className="h-7 sm:h-[26px] w-auto" />
         </a>

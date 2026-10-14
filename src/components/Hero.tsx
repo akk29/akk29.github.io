@@ -1,12 +1,12 @@
 import { Card } from "./Card";
 import { resumeBadgeUrl, socialBadges } from "../data";
-import profileImage from "../assets/profile.jpg";
+import profileImage from "../assets/profile.png";
 
 export function Hero() {
   return (
     <Card id="profile" className="text-center">
       <div className="profile-photo mx-auto mt-5 mb-6 sm:mt-8 sm:mb-7 w-36 h-36 sm:w-48 sm:h-48 overflow-hidden rounded-full border-2 border-dashed border-[var(--gutter)] bg-[var(--bg-elevated)] flex items-center justify-center">
-        <img src={profileImage} alt="Akshay Kathpal" className="h-full w-full object-cover object-[center_30%]" />
+        <img src={profileImage} alt="Akshay Kathpal" className="h-full w-full object-cover object-[center_1%]" />
       </div>
 
       <p className="text-xl sm:text-2xl font-semibold text-[var(--text-bright)]">

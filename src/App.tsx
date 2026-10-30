@@ -6,6 +6,7 @@ import { TechStack } from "./components/TechStack";
 import { Projects } from "./components/Projects";
 import { GithubStats } from "./components/GithubStats";
 import { Education } from "./components/Education";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <GithubStats />
         <Education />
       </main>
+      <Footer />
     </div>
   );
 }
